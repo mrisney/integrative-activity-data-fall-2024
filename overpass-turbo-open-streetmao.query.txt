@@ -1,0 +1,26 @@
+[out:json][timeout:60];
+
+// Define the areas for California, Oregon, and Washington
+area[name="California"]->.californiaArea;
+area[name="Oregon"]->.oregonArea;
+area[name="Washington"]->.washingtonArea;
+
+// Get nodes, ways, and relations with "shop=cannabis" in the defined areas
+(
+  node["shop"="cannabis"](area.californiaArea);
+  way["shop"="cannabis"](area.californiaArea);
+  relation["shop"="cannabis"](area.californiaArea);
+  
+  node["shop"="cannabis"](area.oregonArea);
+  way["shop"="cannabis"](area.oregonArea);
+  relation["shop"="cannabis"](area.oregonArea);
+  
+  node["shop"="cannabis"](area.washingtonArea);
+  way["shop"="cannabis"](area.washingtonArea);
+  relation["shop"="cannabis"](area.washingtonArea);
+);
+
+// Print results
+out body;
+>;
+out skel qt;
